@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Caso_2.UI
 {
-    public partial class Form1 : Form
+    public partial class SignIn : Form
     {
-        public Form1()
+        public SignIn()
         {
             InitializeComponent();
         }
