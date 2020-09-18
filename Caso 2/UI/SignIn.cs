@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,8 +14,10 @@ namespace Caso_2.UI
 {
     public partial class SignIn : Form
     {
-        public SignIn()
+        SqlConnection con;
+        public SignIn(SqlConnection con)
         {
+            this.con = con;
             InitializeComponent();
         }
     }
