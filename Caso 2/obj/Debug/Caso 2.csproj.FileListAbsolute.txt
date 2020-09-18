@@ -1,0 +1,12 @@
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\bin\Debug\Caso 2.exe.config
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\bin\Debug\Caso 2.exe
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\bin\Debug\Caso 2.pdb
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso 2.csprojAssemblyReference.cache
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso_2.Properties.Resources.resources
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso_2.UI.SucursalManagement.resources
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso 2.csproj.GenerateResource.cache
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso 2.csproj.CoreCompileInputs.cache
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso 2.exe
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso 2.pdb
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso_2.Form1.resources
+C:\Applications\GitHub\University-DataBasesII-Case-2\Caso 2\obj\Debug\Caso_2.UI.SignIn.resources
