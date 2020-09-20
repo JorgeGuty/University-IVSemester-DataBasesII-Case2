@@ -18,6 +18,15 @@ namespace Caso_2.UI
         {
             this.con = con;
             InitializeComponent();
+
+            foreach (Control c in Controls)
+            {
+                // En ese 1==1 va el permiso, pero nunca me sirvió la conexión a la base
+                if ((c.Tag != null) || (1==1))
+                {
+                    c.Enabled = true;
+                }
+            }
         }
 
         private void SucursalManagement_Load(object sender, EventArgs e)

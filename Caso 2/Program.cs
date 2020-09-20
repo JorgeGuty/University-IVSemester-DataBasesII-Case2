@@ -15,8 +15,7 @@ namespace Caso_2
         [STAThread]
         static void Main()
         {
-            string conn_string = "Server = localhost; Database=Caso2_DBII; Trusted_Connection=True;";
-            SqlConnection con = new SqlConnection(conn_string);
+            SqlConnection con = new SqlConnection(@"Data Source=(local); Initial Catalog=Caso2_BDII; Integrated Security=True;");
             con.Open();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

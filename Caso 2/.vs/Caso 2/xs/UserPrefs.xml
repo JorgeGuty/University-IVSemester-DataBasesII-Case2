@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{25FA616A-5289-4C02-96CC-4E01B2DD6A33}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Caso 2" expanded="True">
+            <Node name="Caso 2" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="UI" expanded="True">
+                <Node name="SignIn.cs" expanded="True" selected="True" />
+                <Node name="SucursalManagement.cs" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Caso_2202 PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
