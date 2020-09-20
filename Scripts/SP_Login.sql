@@ -2,10 +2,19 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
+USE Caso2_DBII
+GO
+
+
 -- =============================================
--- Author:		Jorge Gutiérrez
+-- Author:		Jorge Gutiérrez Cordero
 -- Create date: 9/18/2020
 -- Description:	Created SP_LogIn
+-- =============================================
+-- Author:		Jorge Gutiérrez Cordero
+-- Change date: 9/19/2020
+-- Description:	Updated column call names
 -- =============================================
 CREATE PROCEDURE SP_LogIn
 	
@@ -40,21 +49,20 @@ BEGIN
 	-- Select de los permisos
 
     SELECT DISTINCT
-		p.Codigo
+		p.Code
 	FROM 
-		[dbo].[Permisos] AS p
+		Permisos AS p
 	INNER JOIN
-		[dbo].[PermisosXRole] AS pr
+		PermisosPorRol AS pr
 		ON
-			p.ID = pr.[PermisosId]
+			p.ID = pr.Permiso_id
 	INNER JOIN 
-		[dbo].[UsersXRol] AS ur
+		UsersPorRol AS ur
 		ON
-			ur.IdUser = @UserId AND ur.idRole = pr.RolId
+			ur.[User_id] = @UserId AND ur.Rol_id = pr.Rol_id
 	INNER JOIN 
-		[dbo].[PermisosXUser] AS pu
+		PermisosPorUsuario AS pu
 		ON 
-			pu.ID = p.PermisosId AND pu.idUser = @UserId
-
+			pu.[User_id] = @UserId AND pu.ID = p.Permiso_id
 END
 GO
