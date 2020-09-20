@@ -40,6 +40,7 @@ BEGIN
 		dbo.[User] AS u
 	WHERE 
 		u.Email = @pEmail AND u.Password = @pPassword
+	PRINT 'JORGE SE LA COME Y ENCONTRO EL USUARIO'
 
 	IF @UserId IS NULL
 	BEGIN
@@ -57,12 +58,12 @@ BEGIN
 		ON
 			p.ID = pr.Permiso_id
 	INNER JOIN 
-		UsersPorRol AS ur
+		UserPorRol AS ur
 		ON
 			ur.[User_id] = @UserId AND ur.Rol_id = pr.Rol_id
 	INNER JOIN 
 		PermisosPorUsuario AS pu
 		ON 
-			pu.[User_id] = @UserId AND pu.ID = p.Permiso_id
+			pu.[User_id] = @UserId AND pu.ID = p.id
 END
 GO
