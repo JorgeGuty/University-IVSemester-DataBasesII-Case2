@@ -1,18 +1,9 @@
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-USE Caso2_DBII
-GO
-
-
 -- =============================================
--- Author:		Jorge Gutiérrez Cordero
+-- Author:		Jorge GutiÃ©rrez Cordero
 -- Create date: 9/18/2020
 -- Description:	Created SP_LogIn
 -- =============================================
--- Author:		Jorge Gutiérrez Cordero
+-- Author:		Jorge GutiÃ©rrez Cordero
 -- Change date: 9/19/2020
 -- Description:	Updated column call names
 -- =============================================
@@ -40,16 +31,15 @@ BEGIN
 		dbo.[User] AS u
 	WHERE 
 		u.Email = @pEmail AND u.Password = @pPassword
-	PRINT 'JORGE SE LA COME Y ENCONTRO EL USUARIO'
-
+	
 	IF @UserId IS NULL
 	BEGIN
-		RAISERROR('Email o contraseña invalidos.', @InvalidLogInSeverity, @InvalidLoginState)
+		RAISERROR('Email o contraseÃ±a invalidos.', @InvalidLogInSeverity, @InvalidLoginState)
 	END
 
 	-- Select de los permisos
 
-    SELECT DISTINCT
+    SELECT
 		p.Code
 	FROM 
 		Permisos AS p
@@ -61,9 +51,10 @@ BEGIN
 		UserPorRol AS ur
 		ON
 			ur.[User_id] = @UserId AND ur.Rol_id = pr.Rol_id
-	INNER JOIN 
-		PermisosPorUsuario AS pu
-		ON 
-			pu.[User_id] = @UserId AND pu.ID = p.id
+	UNION
+    SELECT P.CODE
+    FROM PERMISOS P
+        INNER JOIN PermisosPorUsuario PPU on P.id = PPU.permiso_id AND PPU.user_id = @UserId
 END
-GO
+go
+
