@@ -22,3 +22,15 @@ C:\Users\esteb\Documents\code\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\
 C:\Users\esteb\Documents\code\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso 2.csproj.CoreCompileInputs.cache
 C:\Users\esteb\Documents\code\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso 2.exe
 C:\Users\esteb\Documents\code\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso 2.pdb
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\bin\Debug\Caso 2.exe.config
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\bin\Debug\Caso 2.exe
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\bin\Debug\Caso 2.pdb
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso 2.csprojAssemblyReference.cache
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso_2.Form1.resources
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso_2.Properties.Resources.resources
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso_2.UI.SignIn.resources
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso_2.UI.SucursalManagement.resources
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso 2.csproj.GenerateResource.cache
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso 2.csproj.CoreCompileInputs.cache
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso 2.exe
+\\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso 2.pdb
