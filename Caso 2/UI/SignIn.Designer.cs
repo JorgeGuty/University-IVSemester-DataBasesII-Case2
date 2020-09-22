@@ -105,6 +105,7 @@
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.EmailTextBox);
             this.Name = "SignIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign In";
             this.Load += new System.EventHandler(this.SignIn_Load);
             this.ResumeLayout(false);

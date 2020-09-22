@@ -72,6 +72,7 @@ namespace Caso_2.UI
             {
                 LogInErrorLabel.Visible = true;
                 LogInErrorLabel.Text = exeption.Message;
+                connection.Close();
             }
         }
 
