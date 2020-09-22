@@ -15,12 +15,11 @@ namespace Caso_2
         [STAThread]
         static void Main()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(local); Initial Catalog=Caso2_BDII; Integrated Security=True;");
-            con.Open();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.SignIn(con));
-            con.Close();
+            Application.Run(new UI.SignIn());
+
         }
     }
 }

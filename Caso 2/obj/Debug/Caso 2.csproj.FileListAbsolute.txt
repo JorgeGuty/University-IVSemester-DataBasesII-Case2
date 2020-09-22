@@ -34,3 +34,15 @@ C:\Users\esteb\Documents\code\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\
 \\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso 2.csproj.CoreCompileInputs.cache
 \\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso 2.exe
 \\vmware-host\Shared Folders\Documentos\Semestre II 2020\TEC\case2\Caso 2\obj\Debug\Caso 2.pdb
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\bin\Debug\Caso 2.exe.config
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\bin\Debug\Caso 2.exe
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\bin\Debug\Caso 2.pdb
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso 2.csprojAssemblyReference.cache
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso_2.Form1.resources
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso_2.Properties.Resources.resources
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso_2.UI.SignIn.resources
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso_2.UI.SucursalManagement.resources
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso 2.csproj.GenerateResource.cache
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso 2.csproj.CoreCompileInputs.cache
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso 2.exe
+C:\Applications\GitHub\JorgeGuty-University-DataBasesII-Case2\Caso 2\obj\Debug\Caso 2.pdb

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caso_2.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,14 @@ namespace Caso_2.UI
 {
     public partial class SucursalManagement : Form
     {
-        SqlConnection con;
+        SqlConnection connection = DBConnection.getInstance().Connection;
         String permiso;
-        String idUser;
-        public SucursalManagement(SqlConnection con, String permiso, String idUser)
+        SucursalModel sucursal;
+
+        public SucursalManagement(String pPermiso, SucursalModel pSucursal)
         {
-            this.con = con;
-            this.permiso = permiso;
-            this.idUser = idUser;
+            this.permiso = pPermiso;
+            this.sucursal = pSucursal;
 
             InitializeComponent();
 
@@ -40,21 +41,6 @@ namespace Caso_2.UI
                 this.checkBox1.Enabled = true;
             }
 
-            this.con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT saldo, nombre FROM [Sucursal] WHERE idUser=@idUser", this.con);
-            cmd.Parameters.AddWithValue("@idUser", this.idUser);
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                if (reader.Read())
-                {
-                    String saldo = reader["saldo"].ToString();
-                    String nombre = reader["nombre"].ToString();
-                    this.NombreSucursalLabel.Text = nombre;
-                    this.SaldoLabel.Text = saldo;
-                }
-            }
-            this.con.Close();
 
         }
 

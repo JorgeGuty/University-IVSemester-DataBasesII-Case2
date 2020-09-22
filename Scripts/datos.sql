@@ -55,3 +55,6 @@ INSERT INTO PermisosPorUsuario(user_id, permiso_id, postTime, deleted) VALUES
 (4, 2, getdate(), 0),
 (4, 4, getdate(), 0);
 GO;
+
+
+EXEC SP_LOGIN 'ElsaPato-Nike@flexthatbitch.usa','a594e5d84e770d52864410a051abc008f786937302fe2cf82010c129223da6ba'

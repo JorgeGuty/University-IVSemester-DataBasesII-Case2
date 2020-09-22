@@ -7,7 +7,8 @@
 -- Change date: 9/19/2020
 -- Description:	Updated column call names
 -- =============================================
-CREATE PROCEDURE SP_LogIn
+
+CREATE OR ALTER PROCEDURE SP_LogIn
 	
 	@pEmail     varchar(100)
 	,@pPassword varchar(150)
@@ -18,7 +19,7 @@ BEGIN
 	DECLARE @UserId INT
 
 	DECLARE @InvalidLogInSeverity INT
-	SET     @InvalidLogInSeverity = 1
+	SET     @InvalidLogInSeverity = 16
 
 	DECLARE @InvalidLoginState INT
 	SET     @InvalidLoginState = 5000

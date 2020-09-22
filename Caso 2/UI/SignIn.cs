@@ -9,50 +9,99 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System;
+using System.Text;
+using System.Security.Cryptography;
+using Caso_2.Models;
 
 namespace Caso_2.UI
 {
     public partial class SignIn : Form
     {
-        SqlConnection con;
+        SqlConnection connection = DBConnection.getInstance().Connection;
+        SqlCommand ExecuteLogin;
+        SqlCommand ExecuteGetSucursalData;
         String permiso;
-        public SignIn(SqlConnection con)
+        public SignIn()
         {
-            this.con = con;
-            this.con.Close();
+            this.ExecuteLogin = new SqlCommand("SP_LogIn", this.connection);
+            this.ExecuteLogin.CommandType = CommandType.StoredProcedure;
+            this.ExecuteGetSucursalData = new SqlCommand("SP_getSucursalData", this.connection);
+            this.ExecuteGetSucursalData.CommandType = CommandType.StoredProcedure;
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SignIn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("SP_LogIn", this.con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            String email = EmailTextBox.Text.Trim();
+            String password = PasswordTextBox.Text.Trim();
+            String emailPasswordConcat = email + password;
+            String hashedPassword = StaticMethods.ComputeSha256Hash(emailPasswordConcat);
 
-            cmd.Parameters.Add("@pEmail", SqlDbType.VarChar).Value = textBox1.Text.Trim();
-            cmd.Parameters.Add("@pPassword", SqlDbType.VarChar).Value = textBox2.Text.Trim();
 
-            cmd.ExecuteNonQuery();
+            ExecuteLogin.Parameters.Clear();
+            ExecuteLogin.Parameters.Add("@pEmail", SqlDbType.VarChar, 100).Value = email;
+            ExecuteLogin.Parameters.Add("@pPassword", SqlDbType.VarChar, 150).Value = hashedPassword;
 
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            try
+            {
+                connection.Open();
+                ExecuteLogin.ExecuteNonQuery();
+
+                using (SqlDataReader reader = ExecuteLogin.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        this.permiso = String.Format("{0}", reader["Code"]);
+                    }
+                }
+                connection.Close();
+                Console.WriteLine(permiso);
+
+                SucursalModel sucursalData = GetSucursalData(email);
+                SucursalManagement sucursal = new SucursalManagement(this.permiso, sucursalData);
+                sucursal.Show();
+
+            }
+            catch (Exception exeption)
+            {
+                LogInErrorLabel.Visible = true;
+                LogInErrorLabel.Text = exeption.Message;
+            }
+        }
+
+        private SucursalModel GetSucursalData(string pEmail)
+        {
+            SucursalModel sucursal = new SucursalModel();
+
+            connection.Open();
+            ExecuteGetSucursalData.Parameters.Clear();
+            ExecuteGetSucursalData.Parameters.Add("@pEmail", SqlDbType.VarChar, 100).Value = pEmail;
+            
+            ExecuteGetSucursalData.ExecuteNonQuery();
+            using (SqlDataReader reader = ExecuteGetSucursalData.ExecuteReader())
             {
                 if (reader.Read())
-                {                    
-                    this. permiso = String.Format("{0}", reader["Codigo"]);                    
-                }                
+                {
+                    sucursal.Balance = Convert.ToString(reader["Balance"]);
+                    sucursal.Name = Convert.ToString(reader["Name"]);
+                }
             }
-            con.Close();
+            connection.Close();
 
-            // ¿DE DONDE SALE EL idUSER PARA MOSTRAR LOS DATOS DE LA SUCURSAL?
+            return sucursal;
+        }
 
-            String idUser = "1" ;
-            if ( idUser != null )
-            {
-                SucursalManagement sucursal = new SucursalManagement(this.con, this.permiso, idUser);
-                sucursal.Show();
-            }
-                
-        }            
-        
+        private void SignIn_Load(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
