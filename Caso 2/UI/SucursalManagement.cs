@@ -16,14 +16,15 @@ namespace Caso_2.UI
     {
         SqlConnection connection = DBConnection.getInstance().Connection;
         String permiso;
-        SucursalModel sucursal;
 
         public SucursalManagement(String pPermiso, SucursalModel pSucursal)
         {
             this.permiso = pPermiso;
-            this.sucursal = pSucursal;
 
             InitializeComponent();
+
+            NombreSucursalLabel.Text = pSucursal.Name;
+            SaldoLabel.Text = pSucursal.Balance;
 
             this.DeleteButton.Tag = "delete";
             Button[] buttons = { this.DeleteButton, this.SaveButton, this.TransactionsButton };
@@ -35,10 +36,10 @@ namespace Caso_2.UI
                     b.Enabled = true;
                 }
             }
-            this.checkBox1.Tag = "ka";
-            if ((this.checkBox1.Tag != null) && (this.permiso == "1"))
+            this.IsEnabledCheckBox.Tag = "ka";
+            if ((this.IsEnabledCheckBox.Tag != null) && (this.permiso == "1"))
             {
-                this.checkBox1.Enabled = true;
+                this.IsEnabledCheckBox.Enabled = true;
             }
 
 

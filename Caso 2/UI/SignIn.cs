@@ -24,11 +24,13 @@ namespace Caso_2.UI
         String permiso;
         public SignIn()
         {
+           
             this.ExecuteLogin = new SqlCommand("SP_LogIn", this.connection);
             this.ExecuteLogin.CommandType = CommandType.StoredProcedure;
             this.ExecuteGetSucursalData = new SqlCommand("SP_getSucursalData", this.connection);
             this.ExecuteGetSucursalData.CommandType = CommandType.StoredProcedure;
             InitializeComponent();
+            PasswordTextBox.PasswordChar = '*';
         }
 
         private void SignIn_Click(object sender, EventArgs e)
@@ -58,9 +60,12 @@ namespace Caso_2.UI
                 connection.Close();
                 Console.WriteLine(permiso);
 
+
                 SucursalModel sucursalData = GetSucursalData(email);
                 SucursalManagement sucursal = new SucursalManagement(this.permiso, sucursalData);
                 sucursal.Show();
+             
+                
 
             }
             catch (Exception exeption)
