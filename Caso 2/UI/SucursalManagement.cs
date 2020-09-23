@@ -15,9 +15,9 @@ namespace Caso_2.UI
     public partial class SucursalManagement : Form
     {
         SqlConnection connection = DBConnection.getInstance().Connection;
-        String permiso;
+        String[] permiso;
 
-        public SucursalManagement(String pPermiso, SucursalModel pSucursal)
+        public SucursalManagement(String[] pPermiso, SucursalModel pSucursal)
         {            
 
             this.permiso = pPermiso;
@@ -33,7 +33,7 @@ namespace Caso_2.UI
 
             foreach ( Button b in buttons)
             {
-                if ((b.Tag != null) && (b.Tag.ToString() == this.permiso))
+                if ((b.Tag != null)) // && (b.Tag.ToString() == this.permiso))
                 {
                     b.Enabled = true;
                 }
@@ -41,7 +41,7 @@ namespace Caso_2.UI
 
             var checkbox = this.IsEnabledCheckBox;
 
-            if ((checkbox.Tag != null) && (checkbox.Tag.ToString() == this.permiso))
+            if ((checkbox.Tag != null)) //&& (checkbox.Tag.ToString() == this.permiso))
             {
                 this.IsEnabledCheckBox.Enabled = true;
             }
@@ -49,24 +49,30 @@ namespace Caso_2.UI
 
         }
 
-        private void get_permission(String permiso)
+        private void get_permission(String[] permisos)
         {
-            String[] permisos = { "69", "420", "69420", "42069" };
-            if (permiso == permisos[1])
-            {
-                this.DeleteButton.Tag = permiso;
-                this.SaveButton.Tag = permiso;
-                this.TransactionsButton.Tag = permiso;
-                this.IsEnabledCheckBox.Tag = permiso;
-            }
-            if (permiso == permisos[2])
-            {
-                this.DeleteButton.Tag = permiso;
-            }
-            if (permiso == permisos[3])
-            {
-                this.TransactionsButton.Tag = permiso;
-            }
+            
+            String[] codigos = { "69", "420", "69420", "42069" };
+            this.SaveButton.Tag = null;
+            this.IsEnabledCheckBox.Tag = null;
+            this.DeleteButton.Tag = null;
+            this.TransactionsButton.Tag = null;
+
+            foreach (String permiso in permisos) {            
+                if (permiso == codigos[1])
+                {                    
+                    this.SaveButton.Tag = permiso;                    
+                    this.IsEnabledCheckBox.Tag = permiso;
+                }
+                if (permiso == codigos[2])
+                {
+                    this.DeleteButton.Tag = permiso;
+                }
+                if (permiso == codigos[3])
+                {
+                    this.TransactionsButton.Tag = permiso;
+                }
+            }            
         }
         private void SucursalManagement_Load(object sender, EventArgs e)
         {

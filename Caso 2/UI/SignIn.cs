@@ -21,7 +21,7 @@ namespace Caso_2.UI
         SqlConnection connection = DBConnection.getInstance().Connection;
         SqlCommand ExecuteLogin;
         SqlCommand ExecuteGetSucursalData;
-        String permiso;
+        String[] permisos;
         public SignIn()
         {
            
@@ -31,6 +31,7 @@ namespace Caso_2.UI
             this.ExecuteGetSucursalData.CommandType = CommandType.StoredProcedure;
             InitializeComponent();
             PasswordTextBox.PasswordChar = '*';
+
         }
 
         private void SignIn_Click(object sender, EventArgs e)
@@ -51,18 +52,23 @@ namespace Caso_2.UI
 
                 using (SqlDataReader reader = ExecuteLogin.ExecuteReader())
                 {
-                    if (reader.Read())
-                    {
-                        this.permiso = String.Format("{0}", reader["Code"]);
+                    
+                    List<string> codigos = new List<string>();                                       
+
+                    while (reader.Read())
+                    {                        
+                        codigos.Add(String.Format("{0}", reader["Code"]));                        
                     }
+                    this.permisos = codigos.ToArray();
                 }
-                connection.Close();                
+                connection.Close();
 
                 SucursalModel sucursalData = GetSucursalData(email);
-                SucursalManagement sucursal = new SucursalManagement(this.permiso, sucursalData);
-                sucursal.Show();                             
+                SucursalManagement sucursal = new SucursalManagement(this.permisos, sucursalData);
+              sucursal.Show();                             
 
             }
+
             catch (Exception exeption)
             {
                 LogInErrorLabel.Visible = true;
