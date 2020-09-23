@@ -18,26 +18,30 @@ namespace Caso_2.UI
         String permiso;
 
         public SucursalManagement(String pPermiso, SucursalModel pSucursal)
-        {
+        {            
+
             this.permiso = pPermiso;
 
             InitializeComponent();
 
             NombreSucursalLabel.Text = pSucursal.Name;
-            SaldoLabel.Text = pSucursal.Balance;
+            SaldoLabel.Text = pSucursal.Balance;                        
 
-            this.DeleteButton.Tag = "delete";
+            get_permission(this.permiso);
+
             Button[] buttons = { this.DeleteButton, this.SaveButton, this.TransactionsButton };
 
-            foreach( Button b in buttons)
+            foreach ( Button b in buttons)
             {
-                if ((b.Tag != null) && (this.permiso == "1"))
+                if ((b.Tag != null) && (b.Tag.ToString() == this.permiso))
                 {
                     b.Enabled = true;
                 }
             }
-            this.IsEnabledCheckBox.Tag = "ka";
-            if ((this.IsEnabledCheckBox.Tag != null) && (this.permiso == "1"))
+
+            var checkbox = this.IsEnabledCheckBox;
+
+            if ((checkbox.Tag != null) && (checkbox.Tag.ToString() == this.permiso))
             {
                 this.IsEnabledCheckBox.Enabled = true;
             }
@@ -45,6 +49,25 @@ namespace Caso_2.UI
 
         }
 
+        private void get_permission(String permiso)
+        {
+            String[] permisos = { "69", "420", "69420", "42069" };
+            if (permiso == permisos[1])
+            {
+                this.DeleteButton.Tag = permiso;
+                this.SaveButton.Tag = permiso;
+                this.TransactionsButton.Tag = permiso;
+                this.IsEnabledCheckBox.Tag = permiso;
+            }
+            if (permiso == permisos[2])
+            {
+                this.DeleteButton.Tag = permiso;
+            }
+            if (permiso == permisos[3])
+            {
+                this.TransactionsButton.Tag = permiso;
+            }
+        }
         private void SucursalManagement_Load(object sender, EventArgs e)
         {
 

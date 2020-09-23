@@ -39,8 +39,7 @@ namespace Caso_2.UI
             String password = PasswordTextBox.Text.Trim();
             String emailPasswordConcat = email + password;
             String hashedPassword = StaticMethods.ComputeSha256Hash(emailPasswordConcat);
-
-
+            
             ExecuteLogin.Parameters.Clear();
             ExecuteLogin.Parameters.Add("@pEmail", SqlDbType.VarChar, 100).Value = email;
             ExecuteLogin.Parameters.Add("@pPassword", SqlDbType.VarChar, 150).Value = hashedPassword;
@@ -57,15 +56,11 @@ namespace Caso_2.UI
                         this.permiso = String.Format("{0}", reader["Code"]);
                     }
                 }
-                connection.Close();
-                Console.WriteLine(permiso);
-
+                connection.Close();                
 
                 SucursalModel sucursalData = GetSucursalData(email);
                 SucursalManagement sucursal = new SucursalManagement(this.permiso, sucursalData);
-                sucursal.Show();
-             
-                
+                sucursal.Show();                             
 
             }
             catch (Exception exeption)
